@@ -28,12 +28,48 @@ describe('Cinema', function () {
     assert.deepStrictEqual(actual, films);
   });
 
-  it('should be able to get a list of film titles');
-  it('should be able to find a film by title');
-  it('should be able to filter films by genre');
-  it('should be able to check whether there are some films from a particular year');
-  it('should be able to check whether there are no films from a particular year');
-  it('should be able to check whether all films are over a particular length');
-  it('should be able to calculate total running time of all films');
+  it('should be able to get a list of film titles', function () {
+    const actual = cinema.getFilmTitles()
+    const expected = ['Moonlight', 'Blade Runner 2049', 'Dunkirk', 'Black Panther', 'T2 Trainspotting']
+    assert.deepStrictEqual(actual, expected)
+  });
+  
+  it('should be able to find a film by title', function() {
+    const actual = cinema.findFilmByTitle('Moonlight');
+    const expected = moonlight;
+    assert.deepStrictEqual(actual, expected);
+  });
+    
+
+  it('should be able to filter films by genre', function() {
+    const actual = cinema.filterFilmsByGenre('drama');
+    const expected = [moonlight, trainspotting];
+    assert.deepStrictEqual(actual, expected);
+  });
+  
+  it('should be able to check whether there are some films from a particular year', function() {
+    const actual = cinema.checkIfFilmsFromYear(2017);
+    const expected = true
+    assert.strictEqual(actual, expected);
+  });
+
+  it('should be able to check whether there are no films from a particular year', function() {
+    const actual = cinema.checkIfFilmsFromYear(2008);
+    const expected = false
+    assert.strictEqual(actual, expected);
+  });
+
+  it('should be able to check whether all films are over a particular length',
+  function() {
+    const actual = cinema.checkIfMinimumLength(90);
+    const expected = true;
+    assert.strictEqual(actual, expected);
+  });
+
+  it('should be able to calculate total running time of all films', function() {
+    const actual = cinema.totalRunningTime();
+    const expected = 622;
+    assert.strictEqual(actual, expected);
+  });
 
 });
