@@ -40,7 +40,6 @@ describe('Cinema', function () {
     assert.deepStrictEqual(actual, expected);
   });
     
-
   it('should be able to filter films by genre', function() {
     const actual = cinema.filterFilmsByProperty('genre','drama');
     const expected = [moonlight, trainspotting];

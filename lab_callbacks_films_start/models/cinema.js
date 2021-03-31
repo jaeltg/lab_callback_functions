@@ -3,26 +3,16 @@ const Cinema = function (films) {
 };
 
 Cinema.prototype.getFilmTitles = function() {
-  const filmTitleArray = this.films.map((film) => {
+  return this.films.map((film) => {
     return film.title
   })
-  return filmTitleArray
 };
 
 Cinema.prototype.findFilmByTitle = function(title) {
-  const foundFilm = this.films.filter((film) => {
+  return this.films.find((film) => {
     return film.title === title
   })
-  return foundFilm[0]
 }
-//   let foundFilm = null;
-//   this.films.forEach((film) => {
-//     if (film.title === title) {
-//       foundFilm = film
-//     }
-//   })
-//   return foundFilm
-
 
 Cinema.prototype.filterFilmsByProperty = function(property, value) {
   return this.films.filter((film) => {
@@ -47,9 +37,6 @@ Cinema.prototype.totalRunningTime = function() {
     return totalFilmLength + film.length
   }, 0)
 }
-
-
- 
 
 
 module.exports = Cinema;
